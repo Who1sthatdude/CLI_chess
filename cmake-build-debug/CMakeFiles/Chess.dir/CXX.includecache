@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/CPP projects/Chess/Figure.cpp
+Figure.h
+D:/CPP projects/Chess/Figure.h
+
+D:/CPP projects/Chess/Figure.h
+
