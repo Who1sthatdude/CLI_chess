@@ -10,11 +10,11 @@ Figure::Figure() {
     this->color = WHITE;
 }
 
-int Figure::getX() {
+int Figure::getRow() const {
     return this->row;
 }
 
-int Figure::getY() {
+int Figure::getCol() const {
     return this->col;
 }
 
@@ -34,10 +34,16 @@ Figure::Figure(const Figure &obj) {
     this->row = obj.row;
     this->col = obj.col;
     this->color = obj.color;
+    this->display = obj.display;
 }
 
-Figure::Figure(int row, int col, enum color color) {
+Figure::Figure(int row, int col, enum color color, char display) {
     this->row = row;
     this->col = col;
     this->color = color;
+    this->display = display;
+}
+
+wchar_t Figure::getDisplay() {
+    return this->display;
 }

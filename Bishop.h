@@ -6,8 +6,14 @@
 #define CHESS_BISHOP_H
 
 
-class Bishop {
+#include "Figure.h"
 
+class Bishop: public Figure {
+public:
+    Bishop(int row, int col, enum color color, char display);
+    Bishop(const Bishop &obj);
+    void move() override;
+    void hit() override;
 };
 
 

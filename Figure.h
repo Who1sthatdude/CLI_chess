@@ -14,17 +14,19 @@ private:
     int row;
     int col;
     color color;
+    char display;
 public:
     Figure();
-    Figure(int row, int col, enum color color);
+    Figure(int row, int col, enum color color, char display);
     Figure(const Figure &obj);
     virtual void move(){}
     virtual void hit(){}
-    int getX();
-    int getY();
+    int getRow() const;
+    int getCol() const;
     void setRow(int row);
     void setCol(int col);
     enum color getColor();
+    wchar_t getDisplay();
 };
 
 

@@ -9,7 +9,11 @@
 #include "Figure.h"
 
 class Rook: public Figure {
-
+public:
+    Rook(int row, int col, enum color color, char display);
+    Rook(const Rook &obj);
+    void move() override;
+    void hit() override;
 };
 
 

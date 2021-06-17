@@ -9,7 +9,11 @@
 #include "Figure.h"
 
 class Pawn: public Figure {
-
+public:
+    Pawn(int row, int col, enum color color, char display);
+    Pawn(const Pawn &obj);
+    void move() override;
+    void hit() override;
 };
 
 

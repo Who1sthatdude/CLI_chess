@@ -9,7 +9,11 @@
 #include "Figure.h"
 
 class Knight: public Figure {
-
+public:
+    Knight(int row, int col, enum color color, char display);
+    Knight(const Knight &obj);
+    void move() override;
+    void hit() override;
 };
 
 
