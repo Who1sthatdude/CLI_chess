@@ -73,8 +73,13 @@ void Board::makeBuffer() {
 void Board::printBuffer() {
     for(auto & i : buffer){
         for(char j : i){
-            std::cout<<j;
+            std::cout<<j<<" ";
         }
         std::cout<<std::endl;
     }
+}
+
+void Board::show() {
+    makeBuffer();
+    printBuffer();
 }

@@ -3,7 +3,6 @@
 int main() {
     Board *board = Board::GetInstance();
     board->Initialize();
-    board->makeBuffer();
-    board->printBuffer();
+    board-> show();
     return 0;
 }
