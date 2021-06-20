@@ -11,12 +11,13 @@
 
 class Board {
 private:
-    static Board* instance;
-    std::vector<Figure*> figures;
+    unsigned int movesCounter = 0;
+    static Board *instance;
+    std::vector<Figure *> figures;
     Board();
     char buffer[8][8];
 public:
-    static Board* GetInstance();
+    static Board *GetInstance();
     void printBuffer();
     void makeBuffer();
     void show();
@@ -24,7 +25,7 @@ public:
     void AddFigure(Figure *obj);
     void DeleteFigure();
     Board(const Board &obj) = delete;
-    void operator = (const Board &) = delete;
+    void operator=(const Board &) = delete;
 };
 
 

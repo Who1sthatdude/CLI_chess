@@ -60,10 +60,10 @@ void Board::makeBuffer() {
         for (int j = 0; j < 8; j++) {
             auto iter = std::find_if(figures.begin(), figures.end(),
                                      [i, j](Figure *obj) { return (obj->getRow() == i) && (obj->getCol() == j); });
-            if (iter != figures.end()){
+            if (iter != figures.end()) {
                 auto index = std::distance(figures.begin(), iter);
                 buffer[i][j] = figures.at(index)->getDisplay();
-            }else {
+            } else {
                 buffer[i][j] = '.';
             }
         }
@@ -71,12 +71,15 @@ void Board::makeBuffer() {
 }
 
 void Board::printBuffer() {
-    for(auto & i : buffer){
-        for(char j : i){
-            std::cout<<j<<" ";
+    for (int i = 0; i < 8; i++) {
+        std::cout << i + 1 << " | ";
+        for (int j = 0; j < 8; j++) {
+            std::cout << buffer[i][j] << " ";
         }
-        std::cout<<std::endl;
+        std::cout << std::endl;
     }
+    std::cout << "    _ _ _ _ _ _ _ _" << std::endl;
+    std::cout << "    A B C D E F G H\n" << std::endl;
 }
 
 void Board::show() {

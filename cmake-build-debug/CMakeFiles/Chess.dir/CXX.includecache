@@ -6,57 +6,23 @@
 
 #IncludeRegexTransform: 
 
-D:/CPP projects/Chess/Bishop.h
+D:/CPP projects/Chess/Board.h
 Figure.h
 D:/CPP projects/Chess/Figure.h
-
-D:/CPP projects/Chess/Board.cpp
-Board.h
-D:/CPP projects/Chess/Board.h
-Pawn.h
-D:/CPP projects/Chess/Pawn.h
-Rook.h
-D:/CPP projects/Chess/Rook.h
-Knight.h
-D:/CPP projects/Chess/Knight.h
-King.h
-D:/CPP projects/Chess/King.h
-Bishop.h
-D:/CPP projects/Chess/Bishop.h
-Queen.h
-D:/CPP projects/Chess/Queen.h
 vector
+-
+
+D:/CPP projects/Chess/Figure.h
+
+D:/CPP projects/Chess/main.cpp
+iostream
+-
+string
 -
 algorithm
 -
-iostream
+utility
 -
-
+Board.h
 D:/CPP projects/Chess/Board.h
-Figure.h
-D:/CPP projects/Chess/Figure.h
-vector
--
-
-D:/CPP projects/Chess/Figure.h
-
-D:/CPP projects/Chess/King.h
-Figure.h
-D:/CPP projects/Chess/Figure.h
-
-D:/CPP projects/Chess/Knight.h
-Figure.h
-D:/CPP projects/Chess/Figure.h
-
-D:/CPP projects/Chess/Pawn.h
-Figure.h
-D:/CPP projects/Chess/Figure.h
-
-D:/CPP projects/Chess/Queen.h
-Figure.h
-D:/CPP projects/Chess/Figure.h
-
-D:/CPP projects/Chess/Rook.h
-Figure.h
-D:/CPP projects/Chess/Figure.h
 
