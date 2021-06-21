@@ -1,24 +1,8 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <utility>
 #include "Board.h"
-
-class WrongInputException : public std::exception {
-private:
-    std::string message;
-public:
-    WrongInputException(std::string str) : message(std::move(str)) {}
-
-//    WrongInputException(const char *str) : message(str) {}
-
-    virtual ~WrongInputException() noexcept {}
-
-    virtual const char *what() const noexcept override {
-        return message.c_str();
-    }
-
-};
+#include "Exceptions/WrongInputException.h"
 
 
 namespace MoveCoord {
@@ -58,7 +42,9 @@ int main() {
             parseInput(str);
         }catch (WrongInputException &e){
             std::cout<<e.what()<<std::endl;
+            continue;
         }
+        board->makeMove(MoveCoord::prevRow, MoveCoord::prevCol, MoveCoord::nextRow, MoveCoord::nextCol);
     }
 
 

@@ -3,13 +3,13 @@
 //
 
 #include "Board.h"
-#include "Pawn.h"
-#include "Rook.h"
-#include "Knight.h"
-#include "King.h"
-#include "Bishop.h"
-#include "Queen.h"
-#include <vector>
+#include "Figures/Pawn.h"
+#include "Figures/Rook.h"
+#include "Figures/Knight.h"
+#include "Figures/King.h"
+#include "Figures/Bishop.h"
+#include "Figures/Queen.h"
+#include "utils.h"
 #include <algorithm>
 #include <iostream>
 
@@ -58,10 +58,8 @@ void Board::AddFigure(Figure *obj) {
 void Board::makeBuffer() {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            auto iter = std::find_if(figures.begin(), figures.end(),
-                                     [i, j](Figure *obj) { return (obj->getRow() == i) && (obj->getCol() == j); });
-            if (iter != figures.end()) {
-                auto index = std::distance(figures.begin(), iter);
+            int index = findFigureIndex(i, j ,figures);
+            if(index != -1){
                 buffer[i][j] = figures.at(index)->getDisplay();
             } else {
                 buffer[i][j] = '.';
@@ -86,3 +84,24 @@ void Board::show() {
     makeBuffer();
     printBuffer();
 }
+
+void Board::makeMove(int prevRow, int prevCol, int nextRow, int nextCol) {
+    color player = (movesCounter % 2) ? BLACK : WHITE;
+    auto iter = std::find_if(figures.begin(), figures.end(),
+                             [prevRow, prevCol](Figure *obj) {
+                                 return (obj->getRow() == prevRow) && (obj->getCol() == prevCol);
+                             });
+    if (iter != figures.end()) {
+        auto index = std::distance(figures.begin(), iter);
+        if(figures.at(index)->getColor()==player){
+            try {
+                figures.at(index)->move(nextRow, nextCol, figures);
+            }catch (std::exception &e){
+                std::cout<<e.what()<<std::endl;
+                movesCounter--;
+            }
+        }
+        movesCounter++;
+    }
+
+    }

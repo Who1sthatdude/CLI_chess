@@ -5,8 +5,7 @@
 #ifndef CHESS_BOARD_H
 #define CHESS_BOARD_H
 
-
-#include "Figure.h"
+#include "Figures/Figure.h"
 #include <vector>
 
 class Board {
@@ -22,6 +21,7 @@ public:
     void makeBuffer();
     void show();
     void Initialize();
+    void makeMove(int prevRow, int prevCol, int nextRow, int nextCol);
     void AddFigure(Figure *obj);
     void DeleteFigure();
     Board(const Board &obj) = delete;
