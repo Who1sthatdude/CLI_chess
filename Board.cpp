@@ -58,8 +58,8 @@ void Board::AddFigure(Figure *obj) {
 void Board::makeBuffer() {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            int index = findFigureIndex(i, j ,figures);
-            if(index != -1){
+            int index = findFigureIndex(i, j, figures);
+            if (index != -1) {
                 buffer[i][j] = figures.at(index)->getDisplay();
             } else {
                 buffer[i][j] = '.';
@@ -87,21 +87,17 @@ void Board::show() {
 
 void Board::makeMove(int prevRow, int prevCol, int nextRow, int nextCol) {
     color player = (movesCounter % 2) ? BLACK : WHITE;
-    auto iter = std::find_if(figures.begin(), figures.end(),
-                             [prevRow, prevCol](Figure *obj) {
-                                 return (obj->getRow() == prevRow) && (obj->getCol() == prevCol);
-                             });
-    if (iter != figures.end()) {
-        auto index = std::distance(figures.begin(), iter);
-        if(figures.at(index)->getColor()==player){
+    int index = findFigureIndex(prevRow, prevCol, figures);
+    if (index != -1) {
+        std::cout << "made move" << std::endl;
+        if (figures.at(index)->getColor() == player) {
             try {
                 figures.at(index)->move(nextRow, nextCol, figures);
-            }catch (std::exception &e){
-                std::cout<<e.what()<<std::endl;
+            } catch (std::exception &e) {
+                std::cout << e.what() << std::endl;
                 movesCounter--;
             }
         }
         movesCounter++;
     }
-
-    }
+}

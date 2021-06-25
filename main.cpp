@@ -18,10 +18,10 @@ void parseInput(std::string &str) {
     if (str.length() != 4) {
         throw WrongInputException("Wrong input, please follow the instructions");
     }
-    MoveCoord::prevRow = (int) str[0] - 97;
-    MoveCoord::prevCol = str[1] - '0' - 1;
-    MoveCoord::nextRow = (int) str[2] - 97;
-    MoveCoord::nextCol = str[3] - '0' - 1;
+    MoveCoord::prevCol = (int) str[0] - 97;
+    MoveCoord::prevRow = str[1] - '0' - 1;
+    MoveCoord::nextCol = (int) str[2] - 97;
+    MoveCoord::nextRow = str[3] - '0' - 1;
     // checking whether the coords numbers are right, don't even try to read that
     if (((MoveCoord::prevRow < 0) || (MoveCoord::prevRow >= 8)) ||
         ((MoveCoord::nextRow < 0) || (MoveCoord::nextRow >= 8)) ||
