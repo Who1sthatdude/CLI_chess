@@ -40,7 +40,7 @@ int main() {
         std::getline(std::cin, str, '\n');
         try {
             parseInput(str);
-        }catch (WrongInputException &e){
+        }catch (std::exception &e){
             std::cout<<e.what()<<std::endl;
             continue;
         }
