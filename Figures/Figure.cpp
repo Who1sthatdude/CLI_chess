@@ -26,7 +26,7 @@ void Figure::setCol(int col) {
     this->col = col;
 }
 
-enum color Figure::getColor() {
+enum color Figure::getColor() const{
     return this->color;
 }
 

@@ -7,6 +7,8 @@
 
 
 #include "Figure.h"
+#include "../utils.h"
+#include "../Exceptions/WrongMoveException.h"
 
 class Pawn: public Figure {
     bool isFirstMove = true;

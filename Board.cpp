@@ -28,9 +28,10 @@ Board::Board() {
 
 void Board::Initialize() {
     for (int i = 0; i < 16; i++) {
-        AddFigure(new Pawn(1, i, WHITE, 'P'));
         if (i >= 8) {
             AddFigure(new Pawn(6, i - 8, BLACK, 'p'));
+        }else{
+            AddFigure(new Pawn(1, i, WHITE, 'P'));
         }
     }
     AddFigure(new Rook(0, 0, WHITE, 'R'));
@@ -89,15 +90,19 @@ void Board::makeMove(int prevRow, int prevCol, int nextRow, int nextCol) {
     color player = (movesCounter % 2) ? BLACK : WHITE;
     int index = findFigureIndex(prevRow, prevCol, figures);
     if (index != -1) {
-        std::cout << "made move" << std::endl;
         if (figures.at(index)->getColor() == player) {
+            std::cout << "made move" << std::endl;
             try {
                 figures.at(index)->move(nextRow, nextCol, figures);
             } catch (std::exception &e) {
                 std::cout << e.what() << std::endl;
                 movesCounter--;
             }
+        }else{
+            movesCounter--;
+            std::cout << "it's other player's turn"<<std::endl;
         }
         movesCounter++;
     }
+    show();
 }

@@ -28,7 +28,7 @@ public:
     int getCol() const;
     void setRow(int row);
     void setCol(int col);
-    enum color getColor();
+    enum color getColor() const;
     char getDisplay();
 };
 
